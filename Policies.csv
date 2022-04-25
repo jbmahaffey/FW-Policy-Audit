@@ -1,0 +1,24 @@
+name,policyid,srcintf,srcaddr,dstintf,dstaddr,webfilter-profile,action,status
+,25,['port3'],['all'],['WAN_Zone'],['AWS_Quarantined'],,deny,enable
+,23,['port3'],['all'],['WAN_Zone'],"['AWS-us-west-2a', 'AWS-us-east-1b']",,accept,enable
+WAN to FAC,40,['any'],['all'],['any'],['FortiAuthenticator'],,accept,enable
+WAN to FML,41,['any'],['all'],['any'],['FortiMail'],,accept,enable
+WAN to EMS,42,['any'],['all'],['any'],['EMS'],,accept,enable
+LAN to Internet,13,['port3'],['all'],['WAN_Zone'],['all'],,accept,enable
+,24,['port2'],['all'],['WAN_Zone'],['AWS_private_cloud_server'],,accept,enable
+DMZ to Internet,2,['port2'],['all'],['WAN_Zone'],['all'],,accept,enable
+,7,['port3'],"['HQ_ISFW', 'Finance Network', 'IT Network', 'Marketing Network', 'Sales Network']",['port2'],"['FinanceServersDMZ', 'WebServersDMZ']",,accept,enable
+,9,['port3'],['all'],['port2'],['File-Server'],,accept,enable
+,10,['port3'],"['Sales Network', 'IT Network']",['port2'],['Sales-Portal'],,accept,enable
+,11,['port3'],"['IT Network', 'Marketing Network']",['port2'],['Marketing-DB'],,accept,enable
+,12,['port3'],['all'],['port2'],['AD-Server'],,accept,enable
+,22,['WAN_Zone'],['AWS_Quarantined'],['port2'],['Server_Network'],,deny,enable
+Branch1 to Branch2,17,['VPN_Zone'],['all'],['VPN_Zone'],['all'],,accept,enable
+Branch to HQ,18,['VPN_Zone'],['all'],"['port2', 'port3']",['all'],,accept,enable
+HQ to Branches,19,"['port2', 'port3']",['all'],['VPN_Zone'],['all'],,accept,enable
+HQ to internet,20,"['port2', 'port3']",['all'],['WAN_Zone'],['all'],,accept,enable
+VPN to Internet,26,['VPN_Zone'],['all'],['WAN_Zone'],['all'],,accept,enable
+vpn_FortiDEMO_local,30,['port3'],['FortiDEMO_local'],['FortiDEMO'],['FortiDEMO_remote'],,accept,enable
+vpn_FortiDEMO_remote,31,['FortiDEMO'],['FortiDEMO_remote'],['port3'],['FortiDEMO_local'],,accept,enable
+MPLS to INET,27,['port6'],"['Branch_01', 'Branch_02', 'MPLS-Interfaces']",['WAN_Zone'],['all'],,accept,enable
+SSLVPN-Access,21,['ssl.root'],['SSLVPN_TUNNEL_ADDR1'],"['port3', 'VPN_Zone', 'port4', 'port2']","['HQ_LANs', 'Remote-Branches', 'Management-Network', 'Server_Network']",,accept,enable
