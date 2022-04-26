@@ -13,7 +13,7 @@ requests.packages.urllib3.disable_warnings()
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--fortigate', default='jmahaffey-fgt-api.fortidemo.fortinet.com:10403', help='Firewall IP Address')
-    parser.add_argument('--token', default='x7c159d9b0wN7c9x76ktzNHsxzNspg', help='API Token')
+    parser.add_argument('--token', default='', help='API Token')
     args = parser.parse_args() 
 
     headers = {
