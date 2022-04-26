@@ -25,7 +25,7 @@ def main():
 
     try:
         # Connect to Fortigate and pull policies
-        policies = requests.get(url, headers=headers)
+        policies = requests.get(url, headers=headers, verify=False)
         policiesjson = policies.json()
     except:
         logging.error('Unable to login to FortiGate')
