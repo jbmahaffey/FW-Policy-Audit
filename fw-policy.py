@@ -21,7 +21,7 @@ def main():
         'content-type': 'application/json'
         }
     
-    url = 'https://%s/api/v2/cmdb/firewall/policy/?access_token=%s' % (args.fortigate, args.token)
+    url = 'https://{}/api/v2/cmdb/firewall/policy/?access_token={}'.format(args.fortigate, args.token)
 
     try:
         # Connect to Fortigate and pull policies
